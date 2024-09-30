@@ -27,6 +27,13 @@ export default {
       <link rel="icon" type="image/x-icon" href="/images/ksd.png"></link>
     </>
   ),
-  titleSuffix: ' - KSD',
-  footerText: `© ${new Date().getFullYear()} Dinas Komunikasi dan Informatika Kabupaten Pekalongan. All Rights Reserved.`,
+  titleSuffix: " - KSD",
+  footer: {
+    content: (
+      <span>
+        &copy; {new Date().getFullYear()} Dinas Komunikasi dan Informatika. All
+        rights reserved.
+      </span>
+    ),
+  },
 };
