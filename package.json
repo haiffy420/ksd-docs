@@ -1,0 +1,20 @@
+{
+  "name": "ksd-api-docs",
+  "version": "1.0.0",
+  "description": "Documentation of KSD API",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "Haifan Tri Buwono Joyo Pangestu",
+  "license": "ISC",
+  "dependencies": {
+    "ksd-api-docs": "file:",
+    "next": "^14.2.13",
+    "nextra": "^3.0.1",
+    "nextra-theme-docs": "^3.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
