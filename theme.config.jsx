@@ -31,7 +31,7 @@ export default {
   footer: {
     content: (
       <span>
-        &copy; {new Date().getFullYear()} Dinas Komunikasi dan Informatika. All
+        &copy; {new Date().getFullYear()} Dinas Komunikasi dan Informatika Kabupaten Pekalongan. All
         rights reserved.
       </span>
     ),
