@@ -23,7 +23,10 @@ export default {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content="KSD API Docs" />
       <meta property="og:description" content="The documentation of KSD API" />
+      <title>KSD API Docs</title>
       <link rel="icon" type="image/x-icon" href="/images/ksd.png"></link>
     </>
   ),
+  titleSuffix: ' - KSD',
+  footerText: `© ${new Date().getFullYear()} Dinas Komunikasi dan Informatika Kabupaten Pekalongan. All Rights Reserved.`,
 };
