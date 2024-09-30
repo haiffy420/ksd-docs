@@ -1,0 +1,77 @@
+# Fields
+
+The `GET /api/v1/field` endpoint allows you to retrieve a list of fields. Each field includes a `name` and a `slug` that can be used for filtering data in other API requests.
+
+## HTTP Request
+
+### GET `/api/v1/field`
+
+This endpoint fetches all available fields.
+
+### Example Request
+
+```bash
+GET https://next-ksd.pekalongankab.go.id/api/v1/field
+```
+
+### Query Parameters
+
+This endpoint does not accept any query parameters.
+
+### Example Response
+
+```json
+[
+  {
+    "_id": "66de91ee063666cc9892b96b",
+    "name": "PENDIDIKAN",
+    "slug": "pendidikan"
+  },
+  {
+    "_id": "66de91ee063666cc9892b96c",
+    "name": "KESEHATAN",
+    "slug": "kesehatan"
+  },
+  {
+    "_id": "66de91ee063666cc9892b96d",
+    "name": "PEKERJAAN UMUM DAN PENATAAN RUANG ",
+    "slug": "pekerjaan-umum-dan-penataan-ruang-"
+  },
+  ...
+  {
+    "_id": "66de91ee063666cc9892b999",
+    "name": "KESATUAN BANGSA DAN POLITIK",
+    "slug": "kesatuan-bangsa-dan-politik"
+  }
+]
+```
+
+### Response Codes
+
+- **200 OK**: The request was successful and returned a list of fields.
+- **400 Bad Request**: An error occurred on the server while processing the request.
+
+## Usage
+
+You can use the `slug` field of the fields returned by this endpoint to filter or reference specific fields in other API queries (e.g., filtering data elements by field).
+
+### Notes
+
+- The `name` field is the user-friendly name of the field.
+- The `slug` field is a URL-safe identifier used for filtering and querying.
+
+## Error Handling
+
+In case of a server error or failed request, the response will return a 400 status code with a message indicating the failure.
+
+### Example Error Response
+
+```json
+{
+  "error": "Failed to fetch data."
+}
+```
+
+---
+
+This endpoint is useful for fetching a list of fields that can be used to filter data elements or other related information in the API.

@@ -1,0 +1,77 @@
+# Categories
+
+The `GET /api/v1/category` endpoint allows you to retrieve a list of categories. Each category includes a `name` and a `slug` that can be used for further API queries.
+
+## HTTP Request
+
+### GET `/api/v1/category`
+
+This endpoint fetches all available categories.
+
+### Example Request
+
+```bash
+GET https://next-ksd.pekalongankab.go.id/api/v1/category
+```
+
+### Query Parameters
+
+This endpoint does not accept any query parameters.
+
+### Example Response
+
+```json
+[
+  {
+    "_id": "6657e68cc06ece4ffdecfb7e",
+    "name": "Prioritas Nasional",
+    "slug": "prioritas-nasional"
+  },
+  {
+    "_id": "6657e68cc06ece4ffdecfb7f",
+    "name": "Prioritas Jateng",
+    "slug": "prioritas-jateng"
+  },
+  {
+    "_id": "6657e68cc06ece4ffdecfb80",
+    "name": "Data Sektoral",
+    "slug": "data-sektoral"
+  },
+  ...
+  {
+    "_id": "6657e68cc06ece4ffdecfb86",
+    "name": "Standar Pelayanan Minimal",
+    "slug": "spm"
+  }
+]
+```
+
+### Response Codes
+
+- **200 OK**: The request was successful and returned a list of categories.
+- **400 Bad Request**: An error occurred on the server while processing the request.
+
+## Usage
+
+You can use the `slug` of the categories returned by this endpoint to filter data in other API requests. For example, filtering data by category in the `/data-element` endpoint.
+
+### Notes
+
+- The `name` field is a user-friendly name of the category.
+- The `slug` field is a URL-safe identifier that you can use in other API queries.
+
+## Error Handling
+
+In case of a server error or failed request, the response will return a 400 status code with a message indicating the failure.
+
+### Example Error Response
+
+```json
+{
+  "error": "Failed to fetch data."
+}
+```
+
+---
+
+This endpoint is useful for fetching a list of categories that can be referenced when making queries in other parts of the API, like filtering data elements by category.

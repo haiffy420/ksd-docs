@@ -1,0 +1,54 @@
+# API Documentation
+
+Welcome to the official API documentation for KSD. This documentation provides detailed information on how to use our APIs to integrate with our platform, access data, and perform various operations.
+
+## Overview
+
+Our API allows you to interact with different resources through simple HTTP requests. Whether you're building a web application, mobile app, or any service that needs to communicate with our system, this documentation will guide you through the process of using our APIs.
+
+### Base URL
+
+All API requests are made to the following base URL:
+```
+https://next-ksd.pekalongankab.go.id/api/v1
+
+```
+
+This URL should be prefixed to all API routes described in this documentation.
+
+## Getting Started
+
+To get started with the API, follow these steps:
+
+1. **Make your first request**: Using a tool like `curl` or Postman, make your first API request to the `GET /data-element` endpoint to retrieve some sample data.
+2. **Review individual endpoints**: Navigate through the sidebar to explore all the available endpoints, their parameters, and example responses.
+
+## Request and Response Format
+
+- **Request Format**: Most API endpoints accept data in `JSON` format, passed via the request body.
+- **Response Format**: All responses will be in `JSON` format, typically consisting of data or error messages.
+
+## Error Handling
+
+We use standard HTTP status codes to indicate the success or failure of API requests:
+
+- **200 OK**: The request was successful.
+- **400 Bad Request**: The request was invalid or cannot be processed.
+- **404 Not Found**: The requested resource could not be found.
+- **500 Internal Server Error**: Something went wrong on our end.
+
+Detailed error messages will be provided in the response body when errors occur, helping you understand the issue and how to resolve it.
+
+## Rate Limiting
+
+To ensure the stability of the service, our API employs rate limiting. The current rate limits are:
+
+- **1000 requests per minute**: Exceeding this limit will result in a `429 Too Many Requests` response. Retry your request after some time.
+
+## Support
+
+If you encounter any issues while using the API, you can reach out to our support team via [dinkominfo@pekalongankab.go.id](mailto:dinkominfo@pekalongankab.go.id). We'll be happy to assist you.
+
+---
+
+Feel free to browse through the API documentation to understand how each endpoint works and how you can use it in your project.

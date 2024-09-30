@@ -1,0 +1,77 @@
+# Sectors
+
+The `GET /api/v1/sector` endpoint allows you to retrieve a list of sectors. Each sector includes a `name` and a `slug` that can be used for filtering data in other API requests.
+
+## HTTP Request
+
+### GET `/api/v1/sector`
+
+This endpoint fetches all available sectors.
+
+### Example Request
+
+```bash
+GET https://next-ksd.pekalongankab.go.id/api/v1/sector
+```
+
+### Query Parameters
+
+This endpoint does not accept any query parameters.
+
+### Example Response
+
+```json
+[
+  {
+    "_id": "66e290869729bf5d8017fff1",
+    "name": "Ekonomi",
+    "slug": "ekonomi"
+  },
+  {
+    "_id": "66e290869729bf5d8017fff2",
+    "name": "Energi",
+    "slug": "energi"
+  },
+  {
+    "_id": "66e290869729bf5d8017fff3",
+    "name": "Geografis",
+    "slug": "geografis"
+  },
+    ...
+  {
+    "_id": "66e290869729bf5d8017fffe",
+    "name": "Tata Kelola Pemerintahan",
+    "slug": "tata-kelola-pemerintahan"
+  },
+]
+```
+
+### Response Codes
+
+- **200 OK**: The request was successful and returned a list of sectors.
+- **400 Bad Request**: An error occurred on the server while processing the request.
+
+## Usage
+
+You can use the `slug` field of the sectors returned by this endpoint to filter or reference specific sectors in other API queries (e.g., filtering data elements by sector).
+
+### Notes
+
+- The `name` field is the user-friendly name of the sector.
+- The `slug` field is a URL-safe identifier used for filtering and querying.
+
+## Error Handling
+
+In case of a server error or failed request, the response will return a 400 status code with a message indicating the failure.
+
+### Example Error Response
+
+```json
+{
+  "error": "Failed to fetch data."
+}
+```
+
+---
+
+This endpoint is useful for fetching a list of sectors that can be used to filter data elements or other related information in the API.

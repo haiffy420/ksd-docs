@@ -1,0 +1,72 @@
+# Data Sources
+
+The `GET /api/v1/data-source` endpoint allows you to retrieve a list of data sources. Each data source includes a `name` and a `slug` that can be used for filtering data in other API requests.
+
+## HTTP Request
+
+### GET `/api/v1/data-source`
+
+This endpoint fetches all available data sources.
+
+### Example Request
+
+```bash
+GET https://next-ksd.pekalongankab.go.id/api/v1/data-source
+```
+
+### Query Parameters
+
+This endpoint does not accept any query parameters.
+
+### Example Response
+
+```json
+[
+  {
+    "_id": "6657e68fc06ece4ffdecfb8f",
+    "name": "Sekretariat Daerah",
+    "slug": "setda"
+  },
+  {
+    "_id": "6657e68fc06ece4ffdecfb90",
+    "name": "Sekretariat DPRD",
+    "slug": "setwan"
+  },
+    ...
+  {
+    "_id": "666ba4097c4aa772587fe659",
+    "name": "Badan Pusat Statistik",
+    "slug": "badan-pusat-statistik"
+  }
+]
+```
+
+### Response Codes
+
+- **200 OK**: The request was successful and returned a list of data sources.
+- **400 Bad Request**: An error occurred on the server while processing the request.
+
+## Usage
+
+You can use the `slug` field of the data sources returned by this endpoint to filter or reference specific data sources in other API queries (e.g., filtering data elements by data source).
+
+### Notes
+
+- The `name` field is the user-friendly name of the data source.
+- The `slug` field is a URL-safe identifier used for filtering and querying.
+
+## Error Handling
+
+In case of a server error or failed request, the response will return a 400 status code with a message indicating the failure.
+
+### Example Error Response
+
+```json
+{
+  "error": "Failed to fetch data."
+}
+```
+
+---
+
+This endpoint is essential for fetching a list of available data sources that can be used to filter data elements in other parts of the API.
