@@ -1,0 +1,72 @@
+# Sumber Data
+
+Endpoint `GET /api/v1/data-source` memungkinkan Anda untuk mengambil daftar sumber data. Setiap sumber data mencakup `name` dan `slug` yang dapat digunakan untuk memfilter data dalam permintaan API lainnya.
+
+## Permintaan HTTP
+
+### GET `/api/v1/data-source`
+
+Endpoint ini mengambil semua sumber data yang tersedia.
+
+### Contoh Permintaan
+
+```bash
+GET https://next-ksd.pekalongankab.go.id/api/v1/data-source
+```
+
+### Parameter Query
+
+Endpoint ini tidak menerima parameter query.
+
+### Contoh Respons
+
+```json
+[
+  {
+    "_id": "6657e68fc06ece4ffdecfb8f",
+    "name": "Sekretariat Daerah",
+    "slug": "setda"
+  },
+  {
+    "_id": "6657e68fc06ece4ffdecfb90",
+    "name": "Sekretariat DPRD",
+    "slug": "setwan"
+  },
+    ...
+  {
+    "_id": "666ba4097c4aa772587fe659",
+    "name": "Badan Pusat Statistik",
+    "slug": "badan-pusat-statistik"
+  }
+]
+```
+
+### Kode Respons
+
+- **200 OK**: Permintaan berhasil dan mengembalikan daftar sumber data.
+- **400 Bad Request**: Terjadi kesalahan pada server saat memproses permintaan.
+
+## Penggunaan
+
+Anda dapat menggunakan kolom `slug` dari sumber data yang dikembalikan oleh endpoint ini untuk memfilter atau merujuk sumber data tertentu dalam kueri API lainnya (misalnya, memfilter elemen data berdasarkan sumber data).
+
+### Catatan
+
+- Kolom `name` adalah nama sumber data yang ramah pengguna.
+- Kolom `slug` adalah pengidentifikasi aman URL yang digunakan untuk memfilter dan kueri.
+
+## Penanganan Kesalahan
+
+Jika terjadi kesalahan server atau permintaan gagal, respons akan mengembalikan kode status 400 dengan pesan yang menunjukkan kegagalan.
+
+### Contoh Respons Kesalahan
+
+```json
+{
+  "error": "Gagal mengambil data."
+}
+```
+
+---
+
+Endpoint ini penting untuk mengambil daftar sumber data yang tersedia yang dapat digunakan untuk memfilter elemen data di bagian lain API.

@@ -1,0 +1,77 @@
+# Kategori
+
+Endpoint `GET /api/v1/category` memungkinkan Anda untuk mengambil daftar kategori. Setiap kategori mencakup `name` dan `slug` yang dapat digunakan untuk permintaan API lebih lanjut.
+
+## Permintaan HTTP
+
+### GET `/api/v1/category`
+
+Endpoint ini mengambil semua kategori yang tersedia.
+
+### Contoh Permintaan
+
+```bash
+GET https://next-ksd.pekalongankab.go.id/api/v1/category
+```
+
+### Parameter Query
+
+Endpoint ini tidak menerima parameter query.
+
+### Contoh Respons
+
+```json
+[
+  {
+    "_id": "6657e68cc06ece4ffdecfb7e",
+    "name": "Prioritas Nasional",
+    "slug": "prioritas-nasional"
+  },
+  {
+    "_id": "6657e68cc06ece4ffdecfb7f",
+    "name": "Prioritas Jateng",
+    "slug": "prioritas-jateng"
+  },
+  {
+    "_id": "6657e68cc06ece4ffdecfb80",
+    "name": "Data Sektoral",
+    "slug": "data-sektoral"
+  },
+  ...
+  {
+    "_id": "6657e68cc06ece4ffdecfb86",
+    "name": "Standar Pelayanan Minimal",
+    "slug": "spm"
+  }
+]
+```
+
+### Kode Respons
+
+- **200 OK**: Permintaan berhasil dan mengembalikan daftar kategori.
+- **400 Bad Request**: Terjadi kesalahan pada server saat memproses permintaan.
+
+## Penggunaan
+
+Anda dapat menggunakan `slug` dari kategori yang dikembalikan oleh endpoint ini untuk memfilter data dalam permintaan API lainnya. Sebagai contoh, memfilter data berdasarkan kategori di endpoint `/data-element`.
+
+### Catatan
+
+- Kolom `name` adalah nama kategori yang ramah pengguna.
+- Kolom `slug` adalah pengidentifikasi yang aman untuk URL yang dapat digunakan dalam permintaan API lainnya.
+
+## Penanganan Kesalahan
+
+Jika terjadi kesalahan server atau permintaan gagal, respons akan mengembalikan kode status 400 dengan pesan yang menunjukkan kegagalan.
+
+### Contoh Respons Kesalahan
+
+```json
+{
+  "error": "Gagal mengambil data."
+}
+```
+
+---
+
+Endpoint ini berguna untuk mengambil daftar kategori yang dapat dirujuk saat membuat permintaan di bagian lain API, seperti memfilter elemen data berdasarkan kategori.

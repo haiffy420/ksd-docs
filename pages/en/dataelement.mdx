@@ -1,0 +1,207 @@
+# Data Element API
+
+This API endpoint retrieves data elements based on search criteria like title, category, data source, sector, and field. The endpoint also supports searching by these fields using regex patterns.
+
+## Endpoint
+
+`GET /api/v1/data-element`
+
+### Query Parameters
+
+- `title` (string, optional): Search data elements by title. Uses regex for case-insensitive matching.
+- `category` (string, optional): Filter by category. The `category` value should be the `slug` of the category.
+- `dataSource` (string, optional): Filter by data source. The `dataSource` value should be the `slug` of the data source.
+- `sector` (string, optional): Filter by sector. The `sector` value should be the `slug` of the sector.
+- `field` (string, optional): Filter by field. The `field` value should be the `slug` of the field.
+
+### Responses
+
+- `200 OK`: Returns an array of data elements that match the search criteria. Each data element includes the following fields:
+  - `_id`: The unique identifier of the data element.
+  - `title`: The title of the data element.
+  - `unit`: The unit of the data element.
+  - `data`: The actual data.
+  - `metadata`: Metadata about the data element.
+  - `status`: The status of the data element (in this case, it filters by `"TERVERIFIKASI"`).
+  - `sector`: Populated field with the sector name and slug.
+  - `field`: Populated field with the field name and slug.
+  - `dataSource`: Populated field with the data source name and slug.
+  - `category`: Populated field with the category name and slug.
+
+#### Example Request
+
+```bash
+GET https://next-ksd.pekalongankab.go.id/api/v1/data-element?title=Jumlah%20Posyandu&category=data-sektoral&sector=kesehatan&dataSource=dinkes
+```
+
+#### Example Response
+
+
+```json
+[
+  {
+    "_id": "66973c799c383342abc479c2",
+    "title": "Jumlah Posyandu Menurut Puskesmas ",
+    "category": [
+      {
+        "_id": "6657e68cc06ece4ffdecfb80",
+        "name": "Data Sektoral",
+        "slug": "data-sektoral"
+      }
+    ],
+    "dataSource": {
+      "_id": "6657e68fc06ece4ffdecfb94",
+      "name": "Dinas Kesehatan",
+      "slug": "dinkes"
+    },
+    "field": [],
+    "unit": "Unit",
+    "data": [
+      {
+        "id": "fabfd658-d414-460b-9c1f-11a3cfa8cea7",
+        "year": 2022,
+        "table": {
+          "headers": [
+            {
+              "content": "Nama Puskesmas",
+              "colSpan": 1,
+              "rowSpan": 2,
+              "dataType": "number"
+            },
+            {
+              "content": "Strata Posyandu",
+              "colSpan": 4,
+              "rowSpan": 1,
+              "dataType": "number"
+            },
+            {
+              "content": "Posyandu Aktif",
+              "colSpan": 1,
+              "rowSpan": 2,
+              "dataType": "number"
+            }
+          ],
+          "subHeaders": [["Pratama", "Madya", "Purnama", "Mandiri"]],
+          "rows": [
+            ["Kandangserang", "0", "3", "55", "12", "67"],
+            ["Paninggaran", "2", "16", "25", "20", "45"],
+            ["Lebakbarang", "0", "2", "18", "15", "33"],
+            ["Petungkriyono", "0", "0", "35", "3", "38"],
+            ["Talun", "0", "0", "2", "58", "60"],
+            ["Doro 1", "1", "0", "30", "9", "39"],
+            ["Doro 2", "0", "0", "25", "8", "33"],
+            ["Karanganyar", "0", "25", "28", "27", "55"],
+            ["Kajen 1", "0", "0", "6", "51", "57"],
+            ["Kajen 2", "0", "21", "33", "7", "40"],
+            ["Kesesi 1", "0", "8", "38", "15", "53"],
+            ["Kesesi 2", "0", "0", "30", "16", "46"],
+            ["Sragi 1 ", "0", "0", "35", "13", "48"],
+            ["Sragi 2", "0", "0", "20", "32", "52"],
+            ["Siwalan", "0", "0", "21", "38", "59"],
+            ["Bojong 1", "0", "0", "13", "42", "55"],
+            ["Bojong 2", "0", "7", "14", "23", "37"],
+            ["Wonopringgo", "1", "9", "35", "35", "70"],
+            ["Kedungwuni 1", "0", "7", "30", "31", "61"],
+            ["Kedungwuni 2", "0", "0", "11", "24", "35"],
+            ["Karangdadap", "0", "10", "20", "32", "52"],
+            ["Buaran", "0", "1", "30", "23", "53"],
+            ["Tirto 1", "0", "1", "34", "29", "63"],
+            ["Tirto 2", "0", "0", "14", "7", "21"],
+            ["Wiradesa", "0", "0", "2", "68", "70"],
+            ["Wonokerto 1", "0", "0", "28", "5", "33"],
+            ["Wonokerto 2", "0", "11", "2", "0", "2"]
+          ]
+        }
+      }
+    ],
+    "metadata": [
+      {
+        "key": "Nama Kegiatan",
+        "value": ""
+      },
+      {
+        "key": "Nama Variabel",
+        "value": ""
+      },
+      {
+        "key": "Alias",
+        "value": ""
+      },
+      {
+        "key": "Konsep",
+        "value": ""
+      },
+      {
+        "key": "Definisi",
+        "value": ""
+      },
+      {
+        "key": "Referensi Pemilihan",
+        "value": ""
+      },
+      {
+        "key": "Referensi Waktu",
+        "value": ""
+      },
+      {
+        "key": "Tipe Data",
+        "value": ""
+      },
+      {
+        "key": "Klasifikasi Isian",
+        "value": ""
+      },
+      {
+        "key": "Aturan Validasi",
+        "value": ""
+      },
+      {
+        "key": "Kalimat Pertanyaan",
+        "value": ""
+      },
+      {
+        "key": "Apakah Dapat Diakses Umum?",
+        "value": ""
+      }
+    ],
+    "status": "TERVERIFIKASI",
+    "sector": [
+      {
+        "_id": "66e290869729bf5d8017fff6",
+        "name": "Kesehatan",
+        "slug": "kesehatan"
+      }
+    ]
+  }
+]
+```
+
+- `404 Not Found`: Returned if any of the category, data source, sector, or field specified by slug in the query parameters is not found.
+
+#### Error Response Example
+
+```json
+{
+  "error": "Category not found. Make sure the slug is correct. List of categories and its slug can be found at /api/v1/category",
+  "status": 404
+}
+```
+
+- `400 Bad Request`: Returned if there was a failure fetching the data.
+
+#### Error Response Example
+
+```json
+{
+  "message": "Failed to fetch data."
+}
+```
+
+---
+
+For more details on the available slugs for categories, data sources, sectors, and fields, refer to their respective endpoints:
+
+- [`/api/v1/category`](/category)
+- [`/api/v1/data-source`](/datasource)
+- [`/api/v1/sector`](/sector)
+- [`/api/v1/field`](/field)

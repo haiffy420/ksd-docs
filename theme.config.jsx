@@ -36,4 +36,8 @@ export default {
       </span>
     ),
   },
+  i18n: [
+    { locale: 'en', name: 'English' },
+    { locale: 'id', name: 'Bahasa Indonesia' },
+  ]
 };

@@ -7,6 +7,10 @@ const withNextra = nextra({
 
 export default withNextra({
   output: "standalone",
+  i18n: {
+    locales: ["en", "id"],
+    defaultLocale: "en",
+  },
 });
 
 // If you have other Next.js configurations, you can pass them as the parameter:

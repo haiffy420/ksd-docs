@@ -1,47 +1,46 @@
-# Data Element API
+# API Elemen Data
 
-This API endpoint retrieves data elements based on search criteria like title, category, data source, sector, and field. The endpoint also supports searching by these fields using regex patterns.
+Endpoint API ini mengambil elemen data berdasarkan kriteria pencarian seperti judul, kategori, sumber data, sektor, dan bidang. Endpoint ini juga mendukung pencarian menggunakan pola regex pada kriteria tersebut.
 
 ## Endpoint
 
 `GET /api/v1/data-element`
 
-### Query Parameters
+### Parameter Query
 
-- `title` (string, optional): Search data elements by title. Uses regex for case-insensitive matching.
-- `category` (string, optional): Filter by category. The `category` value should be the `slug` of the category.
-- `dataSource` (string, optional): Filter by data source. The `dataSource` value should be the `slug` of the data source.
-- `sector` (string, optional): Filter by sector. The `sector` value should be the `slug` of the sector.
-- `field` (string, optional): Filter by field. The `field` value should be the `slug` of the field.
+- `title` (string, opsional): Mencari elemen data berdasarkan judul. Menggunakan regex untuk pencocokan yang tidak peka huruf besar/kecil.
+- `category` (string, opsional): Memfilter berdasarkan kategori. Nilai `category` harus berupa `slug` dari kategori.
+- `dataSource` (string, opsional): Memfilter berdasarkan sumber data. Nilai `dataSource` harus berupa `slug` dari sumber data.
+- `sector` (string, opsional): Memfilter berdasarkan sektor. Nilai `sector` harus berupa `slug` dari sektor.
+- `field` (string, opsional): Memfilter berdasarkan bidang. Nilai `field` harus berupa `slug` dari bidang.
 
-### Responses
+### Respon
 
-- `200 OK`: Returns an array of data elements that match the search criteria. Each data element includes the following fields:
-  - `_id`: The unique identifier of the data element.
-  - `title`: The title of the data element.
-  - `unit`: The unit of the data element.
-  - `data`: The actual data.
-  - `metadata`: Metadata about the data element.
-  - `status`: The status of the data element (in this case, it filters by `"TERVERIFIKASI"`).
-  - `sector`: Populated field with the sector name and slug.
-  - `field`: Populated field with the field name and slug.
-  - `dataSource`: Populated field with the data source name and slug.
-  - `category`: Populated field with the category name and slug.
+- `200 OK`: Mengembalikan array elemen data yang sesuai dengan kriteria pencarian. Setiap elemen data mencakup bidang berikut:
+  - `_id`: Pengidentifikasi unik dari elemen data.
+  - `title`: Judul elemen data.
+  - `unit`: Satuan dari elemen data.
+  - `data`: Data aktual.
+  - `metadata`: Metadata tentang elemen data.
+  - `status`: Status elemen data (dalam hal ini, memfilter berdasarkan status `"TERVERIFIKASI"`).
+  - `sector`: Bidang yang diisi dengan nama dan slug sektor.
+  - `field`: Bidang yang diisi dengan nama dan slug bidang.
+  - `dataSource`: Bidang yang diisi dengan nama dan slug sumber data.
+  - `category`: Bidang yang diisi dengan nama dan slug kategori.
 
-#### Example Request
+#### Contoh Permintaan
 
 ```bash
 GET https://next-ksd.pekalongankab.go.id/api/v1/data-element?title=Jumlah%20Posyandu&category=data-sektoral&sector=kesehatan&dataSource=dinkes
 ```
 
-#### Example Response
-
+#### Contoh Respon
 
 ```json
 [
   {
     "_id": "66973c799c383342abc479c2",
-    "title": "Jumlah Posyandu Menurut Puskesmas ",
+    "title": "Jumlah Posyandu Menurut Puskesmas",
     "category": [
       {
         "_id": "6657e68cc06ece4ffdecfb80",
@@ -176,36 +175,32 @@ GET https://next-ksd.pekalongankab.go.id/api/v1/data-element?title=Jumlah%20Posy
 ]
 ```
 
-- `404 Not Found`: Returned if any of the category, data source, sector, or field specified by slug in the query parameters is not found.
+- `404 Not Found`: Dikembalikan jika kategori, sumber data, sektor, atau bidang yang ditentukan oleh slug dalam parameter query tidak ditemukan.
 
-#### Error Response Example
+#### Contoh Respon Error
 
 ```json
 {
-  "error": "Category not found. Make sure the slug is correct. List of categories and its slug can be found at /api/v1/category",
+  "error": "Kategori tidak ditemukan. Pastikan slug sudah benar. Daftar kategori dan slug-nya dapat ditemukan di /api/v1/category",
   "status": 404
 }
 ```
 
-- `400 Bad Request`: Returned if there was a failure fetching the data.
+- `400 Bad Request`: Dikembalikan jika terjadi kegagalan dalam pengambilan data.
 
-#### Error Response Example
+#### Contoh Respon Error
 
 ```json
 {
-  "message": "Failed to fetch data."
+  "message": "Gagal mengambil data."
 }
 ```
 
 ---
 
-For more details on the available slugs for categories, data sources, sectors, and fields, refer to their respective endpoints:
+Untuk informasi lebih lanjut tentang slug yang tersedia untuk kategori, sumber data, sektor, dan bidang, silakan merujuk ke endpoint masing-masing:
 
 - [`/api/v1/category`](/category)
 - [`/api/v1/data-source`](/datasource)
 - [`/api/v1/sector`](/sector)
 - [`/api/v1/field`](/field)
-
----
-
-This MDX documentation provides a comprehensive description of your `GET /api/v1/data-element` API, detailing the query parameters, responses, and error handling. Let me know if you want to adjust or add anything!

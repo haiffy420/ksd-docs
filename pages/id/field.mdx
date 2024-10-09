@@ -1,0 +1,77 @@
+# Bidang Urusan
+
+Endpoint `GET /api/v1/field` memungkinkan Anda untuk mengambil daftar bidang urusan. Setiap bidang urusan mencakup `name` dan `slug` yang dapat digunakan untuk memfilter data dalam permintaan API lainnya.
+
+## Permintaan HTTP
+
+### GET `/api/v1/field`
+
+Endpoint ini mengambil semua bidang urusan yang tersedia.
+
+### Contoh Permintaan
+
+```bash
+GET https://next-ksd.pekalongankab.go.id/api/v1/field
+```
+
+### Parameter Query
+
+Endpoint ini tidak menerima parameter query.
+
+### Contoh Respons
+
+```json
+[
+  {
+    "_id": "66de91ee063666cc9892b96b",
+    "name": "PENDIDIKAN",
+    "slug": "pendidikan"
+  },
+  {
+    "_id": "66de91ee063666cc9892b96c",
+    "name": "KESEHATAN",
+    "slug": "kesehatan"
+  },
+  {
+    "_id": "66de91ee063666cc9892b96d",
+    "name": "PEKERJAAN UMUM DAN PENATAAN RUANG",
+    "slug": "pekerjaan-umum-dan-penataan-ruang-"
+  },
+  ...
+  {
+    "_id": "66de91ee063666cc9892b999",
+    "name": "KESATUAN BANGSA DAN POLITIK",
+    "slug": "kesatuan-bangsa-dan-politik"
+  }
+]
+```
+
+### Kode Respons
+
+- **200 OK**: Permintaan berhasil dan mengembalikan daftar bidang urusan.
+- **400 Bad Request**: Terjadi kesalahan pada server saat memproses permintaan.
+
+## Penggunaan
+
+Anda dapat menggunakan kolom `slug` dari bidang urusan yang dikembalikan oleh endpoint ini untuk memfilter atau merujuk bidang urusan tertentu dalam kueri API lainnya (misalnya, memfilter elemen data berdasarkan bidang urusan).
+
+### Catatan
+
+- Kolom `name` adalah nama bidang urusan yang ramah pengguna.
+- Kolom `slug` adalah pengidentifikasi aman URL yang digunakan untuk memfilter dan kueri.
+
+## Penanganan Kesalahan
+
+Jika terjadi kesalahan server atau permintaan gagal, respons akan mengembalikan kode status 400 dengan pesan yang menunjukkan kegagalan.
+
+### Contoh Respons Kesalahan
+
+```json
+{
+  "error": "Gagal mengambil data."
+}
+```
+
+---
+
+Endpoint ini berguna untuk mengambil daftar bidang urusan yang dapat digunakan untuk memfilter elemen data atau informasi terkait lainnya dalam API.
